@@ -376,7 +376,7 @@ components:
               data:
                 $ref: '#/components/schemas/webhook_Full'
               meta:
-                $ref: ./channels.v3.yml#/components/schemas/pagination_Full
+                $ref: '#/components/schemas/Pagination'
           examples:
             v3:
               value:
