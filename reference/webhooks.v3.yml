@@ -2817,7 +2817,7 @@ components:
           description: Maximum number of items per page.
         current_page:
           type: integer
-          description: Current page number of results.
+          description: Current page number.
         total_pages:
           type: integer
           description: Total number of pages.
