@@ -22,11 +22,11 @@ paths:
 
         <div class="HubBlock--callout">
         <div class="CalloutBlock--info">
-        <div class="HubBlock-content"> 
+        <div class="HubBlock-content">
 
         > ### Note
         > The Send a Test Request feature is not currently supported for this endpoint.
-         
+
         </div>
         </div>
         </div>
@@ -145,6 +145,8 @@ definitions:
       channelId:
         type: number
         description: Id of the channel which the order belongs to.
+      consignments:
+        $ref: '#/definitions/Consignments'
   Currency:
     title: Currency
     description: This will always be the same between cart and checkout.
@@ -732,6 +734,345 @@ definitions:
               type: integer
       taxTotal:
         type: integer
+  Consignments:
+    title: Consignments
+    type: object
+    description: All the consignments of the order
+    properties:
+      digital:
+        type: array
+        description: List of digital consignments
+        items:
+          $ref: '#/definitions/DigitalConsignment'
+      pickup:
+        type: array
+        description: List of pickup consignments
+        items:
+          $ref: '#/definitions/PickupConsignment'
+      shipping:
+        type: array
+        description: List of shipping consignments
+        items:
+          $ref: '#/definitions/ShippingConsignment'
+    x-examples:
+      example-1:
+        digital:
+          - id: null
+            lineItems:
+              - id: 4
+            email: recipient@bigcommerce.com
+        pickup:
+          - id: 3
+            lineItems:
+              - id: 2
+            location:
+              id: 1
+              name: Location 1
+              address1: 2802 Skyway Cir
+              address2: string
+              city: Austin
+              stateOrProvince: Texas
+              postalCode: '78704'
+              country: United States
+              countryCode: US
+              email: loc1@bigcommerce.com
+              phone: '0410123452'
+        shipping:
+          - id: null
+            lineItems:
+              - id: 8
+            shippingAddressId: 1
+            firstName: first1
+            lastName: last1
+            company: company1
+            address1: 2802 Skyway Cir
+            address2: Balcony
+            city: Austin
+            stateOrProvince: Texas
+            postalCode: '78704'
+            country: United States
+            countryCode: US
+            email: first1@bigcommerce.com
+            phone: '0410123452'
+            itemsTotal: 1
+            itemsShipped: 0
+            shippingMethod: Flat Rate
+            baseCost: 15.5
+            costExTax: 15.5
+            costIncTax: 16.7
+            costTax: 1.2
+            costTaxClassId: 2
+            baseHandlingCost: 0
+            handlingCostExTax: 0
+            handlingCostIncTax: 0
+            handlingCostTax: 0
+            handlingCostTaxClassId: 2
+            shippingZoneId: 1
+            shippingZoneName: United States
+            customFields:
+              - name: special note
+                value: super rare
+  ShippingConsignment:
+    title: ShippingConsignment
+    type: object
+    description: Shipping consignment
+    x-examples:
+      example-1:
+        id: null
+        lineItems:
+          - id: 4
+        shippingAddressId: 1
+        firstName: first1
+        lastName: last1
+        company: company1
+        address1: 2802 Skyway Cir
+        address2: Balcony
+        city: Austin
+        stateOrProvince: Texas
+        postalCode: '78704'
+        country: United States
+        countryCode: US
+        email: first1@bigcommerce.com
+        phone: '0410123452'
+        itemsTotal: 1
+        itemsShipped: 0
+        shippingMethod: Flat Rate
+        baseCost: 15.5
+        costExTax: 15.5
+        costIncTax: 16.7
+        costTax: 1.2
+        costTaxClassId: 2
+        baseHandlingCost: 0
+        handlingCostExTax: 0
+        handlingCostIncTax: 0
+        handlingCostTax: 0
+        handlingCostTaxClassId: 2
+        shippingZoneId: 1
+        shippingZoneName: United States
+        customFields:
+          - name: special note
+            value: super rare
+    properties:
+      id:
+        type: integer
+        example: 1
+        x-nullable: true
+      lineItems:
+        type: array
+        items:
+          $ref: '#/definitions/ConsignmentLineItem'
+      shippingAddressId:
+        type: integer
+        example: 1
+      firstName:
+        type: string
+        example: first1
+      lastName:
+        type: string
+        example: last1
+      company:
+        type: string
+        example: company1
+      address1:
+        type: string
+        example: 2802 Skyway Cir
+      address2:
+        type: string
+        example: Balcony
+      city:
+        type: string
+        example: Austin
+      stateOrProvince:
+        type: string
+        example: Texas
+      postalCode:
+        type: string
+        example: '78704'
+      country:
+        type: string
+        example: United States
+      countryCode:
+        type: string
+        example: US
+      email:
+        type: string
+        example: first1@bigcommerce.com
+      phone:
+        type: string
+        example: '0410123452'
+      itemsTotal:
+        type: integer
+        example: 1
+      itemsShipped:
+        type: integer
+        example: 0
+      shippingMethod:
+        type: string
+        example: Flat Rate
+      baseCost:
+        type: number
+        example: 15.5
+      costExTax:
+        type: number
+        example: 15.5
+      costIncTax:
+        type: number
+        example: 16.7
+      costTax:
+        type: number
+        example: 1.2
+      costTaxClassId:
+        type: integer
+        example: 2
+      baseHandlingCost:
+        type: number
+        example: 0
+      handlingCostExTax:
+        type: number
+        example: 0
+      handlingCostIncTax:
+        type: number
+        example: 0
+      handlingCostTax:
+        type: number
+        example: 0
+      handlingCostTaxClassId:
+        type: integer
+        example: 2
+      shippingZoneId:
+        type: number
+        example: 1
+      shippingZoneName:
+        type: string
+        example: United States
+      customFields:
+        type: array
+        items:
+          $ref: '#/definitions/ConsignmentFormField'
+  ConsignmentLineItem:
+    title: ConsignmentLineItem
+    type: object
+    description: ''
+    properties:
+      id:
+        type: integer
+        example: 4
+  ConsignmentFormField:
+    title: ConsignmentFormField
+    type: object
+    properties:
+      name:
+        type: string
+        example: special note
+      value:
+        type:
+          - string
+          - number
+          - boolean
+        example: super rare
+        x-nullable: true
+  DigitalConsignment:
+    title: DigitalConsignment
+    type: object
+    description: Digital consignment
+    x-examples:
+      example-1:
+        id: null
+        lineItems:
+          - id: 5
+        email: recipient@bigcommerce.com
+    properties:
+      id:
+        type: integer
+        example: 2
+        x-nullable: true
+      lineItems:
+        type: array
+        items:
+          $ref: '#/definitions/ConsignmentLineItem'
+      email:
+        type: string
+        example: recipient@bigcommerce.com
+  PickupConsignment:
+    title: PickupConsignment
+    type: object
+    description: Pickup consignment
+    x-examples:
+      example-1:
+        id: 3
+        lineItems:
+          - id: 4
+        location:
+          id: 1
+          name: Location 1
+          address1: 2802 Skyway Cir
+          address2: string
+          city: Austin
+          stateOrProvince: Texas
+          postalCode: '78704'
+          country: United States
+          countryCode: US
+          email: loc1@bigcommerce.com
+          phone: '0410123452'
+    properties:
+      id:
+        type: integer
+        example: 3
+      lineItems:
+        type: array
+        items:
+          $ref: '#/definitions/ConsignmentLineItem'
+      location:
+        $ref: '#/definitions/PickupConsignmentLocation'
+  PickupConsignmentLocation:
+    title: PickupConsignmentLocation
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Location 1
+      address1:
+        type: string
+        example: 2802 Skyway Cir
+      address2:
+        type: string
+      city:
+        type: string
+        example: Austin
+      stateOrProvince:
+        type: string
+        example: Texas
+      postalCode:
+        type: string
+        example: '78704'
+      country:
+        type: string
+        example: United States
+      countryCode:
+        type: string
+        example: US
+      email:
+        type: string
+        example: loc1@bigcommerce.com
+      phone:
+        type: string
+        example: '0410123452'
+    x-examples:
+      example-1:
+        id: 1
+        name: Location 1
+        address1: 2802 Skyway Cir
+        address2: string
+        city: Austin
+        stateOrProvince: Texas
+        postalCode: '78704'
+        country: United States
+        countryCode: US
+        email: loc1@bigcommerce.com
+        phone: '0410123452'
 x-stoplight:
   docs:
     includeDownloadLink: true
