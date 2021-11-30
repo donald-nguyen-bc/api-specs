@@ -754,7 +754,7 @@ definitions:
             postalCode: '78704'
             country: United States
             countryCode: US
-            email: first1@bigcommerce.com
+            email: 'first1@bigcommerce.com'
             phone: '0410123452'
             itemsTotal: 1
             itemsShipped: 0
@@ -799,7 +799,7 @@ definitions:
         postalCode: '78704'
         country: United States
         countryCode: US
-        email: first1@bigcommerce.com
+        email: 'first1@bigcommerce.com'
         phone: '0410123452'
         itemsTotal: 1
         itemsShipped: 0
@@ -859,7 +859,7 @@ definitions:
         example: US
       email:
         type: string
-        example: first1@bigcommerce.com
+        example: 'first1@bigcommerce.com'
       phone:
         type: string
         example: '0410123452'
@@ -928,10 +928,7 @@ definitions:
         type: string
         example: special note
       value:
-        type:
-          - string
-          - number
-          - boolean
+        type: string
         example: super rare
         x-nullable: true
   PickupConsignment:
@@ -957,7 +954,7 @@ definitions:
           postalCode: '78704'
           country: United States
           countryCode: US
-          email: loc1@bigcommerce.com
+          email: 'loc1@bigcommerce.com'
           phone: '0410123452'
     properties:
       id:
@@ -1013,7 +1010,7 @@ definitions:
         example: US
       email:
         type: string
-        example: loc1@bigcommerce.com
+        example: 'loc1@bigcommerce.com'
       phone:
         type: string
         example: '0410123452'
@@ -1028,7 +1025,7 @@ definitions:
         postalCode: '78704'
         country: United States
         countryCode: US
-        email: loc1@bigcommerce.com
+        email: 'loc1@bigcommerce.com'
         phone: '0410123452'
 x-stoplight:
   docs:
