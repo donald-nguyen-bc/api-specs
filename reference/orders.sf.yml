@@ -943,6 +943,10 @@ definitions:
         id: 3
         lineItems:
           - id: 4
+        pickupMethodId: 10
+        pickupMethodDisplayName: 'Pickup Method 10: Pickup at Location 1'
+        collectionInstructions: Pickup Method 10 Collection Instructions
+        collectionTimeDescription: Pickup Method 10 Collection Time Description
         location:
           id: 1
           name: Location 1
@@ -963,6 +967,18 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ConsignmentLineItem'
+      pickupMethodId:
+        type: integer
+        example: 10
+      pickupMethodDisplayName:
+        type: string
+        example: 'Pickup Method 10: Pickup at Location 1'
+      collectionInstructions:
+        type: string
+        example: Pickup Method 10 Collection Instructions
+      collectionTimeDescription:
+        type: string
+        example: Pickup Method 10 Collection Time Description
       location:
         $ref: '#/definitions/PickupConsignmentLocation'
   PickupConsignmentLocation:
