@@ -1,0 +1,174 @@
+{
+  "Current": {
+    "consignments": {
+      "pickup": [
+        {
+          "id": 19,
+          "line_items": {
+            "url": "https://api-proxy.service.bcdev/stores/txy6nw8xqz/v2/orders/133/products",
+            "resource": "/api/v2/orders/133/products"
+          },
+          "fulfillment_method": {
+            "pickup": {
+              "pickup_method_id": 10,
+              "pickup_method_display_name": "Pickup Method 10: Pickup at Location 1",
+              "collection_instructions": "Pickup Method 10 Collection Instructions",
+              "collection_time_description": "Pickup Method 10 Collection Time Description",
+              "location": {
+                "id": 1,
+                "name": "Default location",
+                "address_line_1": "123 main street",
+                "address_line_2": "",
+                "city": "Austin",
+                "state": "TX",
+                "postal_code": "111111",
+                "country_alpha2": "US",
+                "email": "default@exmaple.com",
+                "phone": "+1 1111111111"
+              }
+            },
+            "digital": null,
+            "delivery": null
+          }
+        }
+      ],
+      "shipping": [
+        {
+          "id": 3,
+          "status": "SHIPPED",
+          "line_items": [
+            {
+              "url": "http://localhost:3100/v2/orders/133/products/93",
+              "resource": "/api/v2/orders/133/orders/133/products"
+            }
+          ],
+          "fulfillment_method": {
+            "pickup": null,
+            "digital": null,
+            "delivery": {
+              "shipping_address_id": 5,
+              "company": "Acme Pty Ltd",
+              "street_1": "Appartment 13",
+              "street_2": "12 Main St",
+              "city": "Sydney",
+              "zip": "2001",
+              "country": "Australis",
+              "country_iso2": "AU",
+              "state": "NSW",
+              "email": "joe@mycompany.com",
+              "phone": "02 3456 7899",
+              "order_id": 7,
+              "first_name": "Trisha",
+              "last_name": "McLaughlin",
+              "items_total": 3,
+              "items_shipped": 2,
+              "base_cost": "27.0000",
+              "cost_ex_tax": "27.0000",
+              "cost_inc_tax": "30.0000",
+              "cost_tax": "3.0000",
+              "cost_tax_class_id": 7,
+              "base_handling_cost": "4.0000",
+              "handling_cost_ex_tax": "4.0000",
+              "handling_cost_inc_tax": "5.0000",
+              "handling_cost_tax": "1.0000",
+              "handling_cost_tax_class_id": 4,
+              "shipping_zone_id": 62,
+              "shipping_zone_name": "Australia",
+              "shipping_quotes": {
+                "url": "https://acme.com/api/v2/orders/133/shipping_addresses/5/shipping_quotes.json",
+                "resource": "/api/v2/orders/133/shipping_addresses/5/shipping_quotes"
+              },
+              "form_fields": [],
+              "links": [
+                {
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/consignments/3/pickup",
+                  "resource": "/orders/100/consignments/1/delivery"
+                },
+                {
+                  "url": "https://api.bigcommerce.com/stores/{$$.env.store_hash}/v2/orders/100/consignments/1/fulfillment_method",
+                  "resource": "/orders/100/consignments/1/fulfillment_method"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Proposed": {
+      "consignments": {
+        "digital": {
+          "similar to what we decide for storefront": ""
+        },
+        "pickup": {
+          "pickup_method_id": 10,
+          "pickup_method_display_name": "Pickup Method 10: Pickup at Location 1",
+          "collection_instructions": "Pickup Method 10 Collection Instructions",
+          "collection_time_description": "Pickup Method 10 Collection Time Description",
+          "location": {
+            "id": 1,
+            "name": "Default location",
+            "address_line_1": "123 main street",
+            "address_line_2": "",
+            "city": "Austin",
+            "state": "TX",
+            "postal_code": "111111",
+            "country_alpha2": "US",
+            "email": "default@exmaple.com",
+            "phone": "+1 1111111111"
+          },
+          "line_items": [
+            {
+              "url": "http://localhost:3100/v2/orders/133/products/99"
+            },
+            {
+              "url": "http://localhost:3100/v2/orders/133/products/100"
+            }
+          ]
+        },
+        "shipping": [
+          {
+            "shippingAddressId": 1,
+            "firstName": "first1",
+            "lastName": "last1",
+            "company": "company1",
+            "address1": "2802 Skyway Cir",
+            "address2": "Balcony",
+            "city": "Austin",
+            "stateOrProvince": "Texas",
+            "postalCode": "78704",
+            "country": "United States",
+            "countryCode": "US",
+            "email": "first1@bigcommerce.com",
+            "phone": "0410123452",
+            "itemsTotal": 1,
+            "itemsShipped": 0,
+            "shippingMethod": "Flat Rate",
+            "baseCost": 15.5,
+            "costExTax": 15.5,
+            "costIncTax": 16.7,
+            "costTax": 1.2,
+            "costTaxClassId": 2,
+            "baseHandlingCost": 0,
+            "handlingCostExTax": 0,
+            "handlingCostIncTax": 0,
+            "handlingCostTax": 0,
+            "handlingCostTaxClassId": 2,
+            "shippingZoneId": 1,
+            "shippingZoneName": "United States",
+            "customFields": [
+              {
+                "name": "special note",
+                "value": "super rare"
+              }
+            ],
+            "lineItems": [
+              {
+                "url": "http://localhost:3100/v2/orders/133/products/93"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
