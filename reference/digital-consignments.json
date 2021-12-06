@@ -1,0 +1,58 @@
+{
+  "Option_1": {
+    "digital": [
+      {
+        "lineItems": [
+          {
+            "id": 7
+          }
+        ],
+        "email": "abc@bigcommerce.com",
+        "type": "gift-certificate"
+      },
+      {
+        "lineItems": [
+          {
+            "id": 8
+          }
+        ],
+        "email": "zyz@bigcommerce.com",
+        "type": "product"
+      }
+    ],
+    "pickup": {
+      "..": "etc"
+    },
+    "shipping": {
+      "..": "etc"
+    }
+  },
+  "Option_2": {
+    "digital": [
+      {
+        "lineItems": [
+          {
+            "id": 8
+          }
+        ],
+        "email": "zyz@bigcommerce.com"
+      }
+    ],
+    "giftCertificate": [
+      {
+        "lineItems": [
+          {
+            "id": 7
+          }
+        ],
+        "email": "abc@bigcommerce.com"
+      }
+    ],
+    "pickup": {
+      "..": "etc"
+    },
+    "shipping": {
+      "..": "etc"
+    }
+  }
+}
