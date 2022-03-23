@@ -422,7 +422,7 @@ paths:
                     pickups:
                       - pickup_method_id: 2
                         pickup_method_display_name: Pick Up - override
-                        collection_instructions: Bring your ID - override.
+                        collection_instructions: Bring your ID - override
                         collection_time_description: 9am - 6pm - override
                         location:
                           name: Location 1 - override
@@ -1030,7 +1030,7 @@ paths:
         name: orderId
         in: path
         required: true
-        description: Order Id.
+        description: Order ID.
     get:
       summary: ListOrderConsignments
       tags:
@@ -1049,7 +1049,7 @@ paths:
                       - id: 99
                         pickup_method_id: 1
                         pickup_method_display_name: Pick Up
-                        collection_instructions: Bring your ID.
+                        collection_instructions: Bring your ID
                         collection_time_description: 9am - 6pm
                         location:
                           id: 1
@@ -1084,13 +1084,13 @@ paths:
         name: orderId
         in: path
         required: true
-        description: Order Id.
+        description: Order ID.
       - schema:
           type: string
         name: consignmentId
         in: path
         required: true
-        description: Consignment Id.
+        description: Consignment ID.
     get:
       summary: getOrderConsginment
       tags:
@@ -1108,7 +1108,7 @@ paths:
                     id: 99
                     pickup_method_id: 1
                     pickup_method_display_name: Pick Up
-                    collection_instructions: Bring your ID.
+                    collection_instructions: Bring your ID
                     collection_time_description: 9am - 6pm
                     location:
                       id: 1
@@ -4734,7 +4734,7 @@ components:
             phone: string
             email: janedoe@example.com
             form_fields:
-              - name: License Id
+              - name: License ID
                 value: 123BAF
           channel_id: 1
           customer_id: 0
@@ -4816,7 +4816,7 @@ components:
             phone: string
             email: janedoe@example.com
             form_fields:
-              - name: License Id
+              - name: License ID
                 value: 123BAF
           channel_id: 1
           customer_id: 0
@@ -4914,7 +4914,7 @@ components:
             phone: string
             email: janedoe@example.com
             form_fields:
-              - name: License Id
+              - name: License ID
                 value: 123BAF
           channel_id: 1
           customer_id: 0
@@ -4994,7 +4994,7 @@ components:
             phone: string
             email: janedoe@example.com
             form_fields:
-              - name: License Id
+              - name: License ID
                 value: 123BAF
           channel_id: 1
           customer_id: 0
@@ -5061,7 +5061,7 @@ components:
             pickup_method_id:
               type: integer
               example: 1
-              description: id of the pickup method
+              description: ID of the pickup method.
           required:
             - pickup_method_id
         - $ref: '#/components/schemas/pickupConsignment_Base'
@@ -5080,7 +5080,7 @@ components:
         example-1:
           pickup_method_id: 1
           pickup_method_display_name: Pick Up
-          collection_instructions: Bring your ID.
+          collection_instructions: Bring your ID
           collection_time_description: 9am - 6pm
           location:
             name: Location 1
@@ -5109,11 +5109,11 @@ components:
             id:
               type: integer
               example: 99
-              description: id of the pickup consignment to update
+              description: ID of the pickup consignment to update.
             pickup_method_id:
               type: integer
               example: 1
-              description: id of the pickup method
+              description: ID of the pickup method.
           required:
             - id
         - $ref: '#/components/schemas/pickupConsignment_Base'
@@ -5130,7 +5130,7 @@ components:
           id: 99
           pickup_method_id: 1
           pickup_method_display_name: Pick Up
-          collection_instructions: Bring your ID.
+          collection_instructions: Bring your ID
           collection_time_description: 9am - 6pm
           location:
             name: Location 1
@@ -5160,11 +5160,11 @@ components:
             id:
               type: integer
               example: 99
-              description: id of the pickup consignment to update
+              description: ID of the pickup consignment to update.
             pickup_method_id:
               type: integer
               example: 1
-              description: id of the pickup method
+              description: ID of the pickup method.
         - $ref: '#/components/schemas/pickupConsignment_Base'
         - type: object
           properties:
@@ -5179,7 +5179,7 @@ components:
           id: 99
           pickup_method_id: 1
           pickup_method_display_name: Pick Up
-          collection_instructions: Bring your ID.
+          collection_instructions: Bring your ID
           collection_time_description: 9am - 6pm
           location:
             id: 1
@@ -5289,7 +5289,7 @@ components:
             id:
               type: integer
               example: 1
-              description: id of the location
+              description: ID of the location.
         - $ref: '#/components/schemas/pickupConsignmentLocation_Base'
     pickupConsignmentLocation_Put:
       title: ''
@@ -5317,7 +5317,7 @@ components:
             - id: 99
               pickup_method_id: 1
               pickup_method_display_name: Pick Up
-              collection_instructions: Bring your ID.
+              collection_instructions: Bring your ID
               collection_time_description: 9am - 6pm
               location:
                 id: 1
@@ -5353,7 +5353,7 @@ components:
             - id: 99
               pickup_method_id: 1
               pickup_method_display_name: Pick Up
-              collection_instructions: Bring your ID.
+              collection_instructions: Bring your ID
               collection_time_description: 9am - 6pm
               location:
                 name: Location 1
@@ -5384,7 +5384,7 @@ components:
           pickups:
             - pickup_method_id: 1
               pickup_method_display_name: Pick Up
-              collection_instructions: Bring your ID.
+              collection_instructions: Bring your ID
               collection_time_description: 9am - 6pm
               location:
                 name: Location 1
