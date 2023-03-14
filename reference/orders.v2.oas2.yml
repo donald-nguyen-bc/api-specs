@@ -2815,7 +2815,7 @@ components:
                 type: number
                 description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT request.
               is_deleted:
-                description: 'Boolean value that indicates whether the order was deleted (archived). Set to to true, to archive an order.'
+                description: 'Boolean value indicates whether the order was deleted (archived). Set to true to archive an order.'
                 example: false
                 type: boolean
               is_email_opt_in:
