@@ -736,8 +736,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/orderShippingAddress'
-              examples:
-                response:
+              x-examples:
+                Example 1:
+                  value:
+                    id: 1
+                    order_id: 100
+                    first_name: first
+                    last_name: last
+                    company: company
+                    street_1: street 1
+                    street_2: street 2
+                    city: Sydney
+                    zip: '2000'
+                    country: Australia
+                    country_iso2: AU
+                    state: New South Wales
+                    email: email@bigcommerce.com
+                    phone: phone
+                    items_total: 1
+                    items_shipped: 0
+                    shipping_method: Flat Rate
+                    base_cost: '15.0000'
+                    cost_ex_tax: '15.0000'
+                    cost_inc_tax: '15.0000'
+                    cost_tax: '0.0000'
+                    cost_tax_class_id: 2
+                    base_handling_cost: '0.0000'
+                    handling_cost_ex_tax: '0.0000'
+                    handling_cost_inc_tax: '0.0000'
+                    handling_cost_tax: '0.0000'
+                    handling_cost_tax_class_id: 2
+                    shipping_zone_id: 1
+                    shipping_zone_name: United States
+                    shipping_quotes:
+                      url: 'https://api-proxy.service.bcdev/stores/17hoqh4ddx/v2/orders/100/shipping_addresses/1/shipping_quotes'
+                      resource: /orders/100/shipping_addresses/1/shipping_quotes
+                    form_fields: []
+                Example 2:
                   value:
                     id: 1
                     order_id: 100
@@ -2286,7 +2321,7 @@ components:
           schema:
             $ref: '#/components/schemas/orderShippingAddress'
           examples:
-            response:
+            Capturing ID in Form Field:
               value:
                 id: 42
                 order_id: 140
@@ -2323,6 +2358,82 @@ components:
                 form_fields:
                   - name: Wholesale ID
                     value: '12345566'
+            Capturing Amount in Form Field:
+              value:
+                id: 42
+                order_id: 140
+                first_name: Jane
+                last_name: Doe
+                company: ''
+                street_1: 123 MainStreet
+                street_2: ''
+                city: Austin
+                zip: '78751'
+                country: United States
+                country_iso2: US
+                state: Texas
+                email: jane@example.com
+                phone: '1234567890'
+                items_total: 2
+                items_shipped: 0
+                shipping_method: Fixed Shipping
+                base_cost: '5.0000'
+                cost_ex_tax: '4.0000'
+                cost_inc_tax: '4.3200'
+                cost_tax: '0.3200'
+                cost_tax_class_id: 2
+                base_handling_cost: '0.0000'
+                handling_cost_ex_tax: '0.0000'
+                handling_cost_inc_tax: '0.0000'
+                handling_cost_tax: '0.0000'
+                handling_cost_tax_class_id: 2
+                shipping_zone_id: 1
+                shipping_zone_name: United States
+                shipping_quotes:
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
+                  resource: /orders/140/shippingaddresses/42/shippingquotes
+                form_fields:
+                  - name: Borrowing Amount
+                    value: '12.2'
+            Capturing Sizing in Form Field:
+              value:
+                id: 42
+                order_id: 140
+                first_name: Jane
+                last_name: Doe
+                company: ''
+                street_1: 123 MainStreet
+                street_2: ''
+                city: Austin
+                zip: '78751'
+                country: United States
+                country_iso2: US
+                state: Texas
+                email: jane@example.com
+                phone: '1234567890'
+                items_total: 2
+                items_shipped: 0
+                shipping_method: Fixed Shipping
+                base_cost: '5.0000'
+                cost_ex_tax: '4.0000'
+                cost_inc_tax: '4.3200'
+                cost_tax: '0.3200'
+                cost_tax_class_id: 2
+                base_handling_cost: '0.0000'
+                handling_cost_ex_tax: '0.0000'
+                handling_cost_inc_tax: '0.0000'
+                handling_cost_tax: '0.0000'
+                handling_cost_tax_class_id: 2
+                shipping_zone_id: 1
+                shipping_zone_name: United States
+                shipping_quotes:
+                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
+                  resource: /orders/140/shippingaddresses/42/shippingquotes
+                form_fields:
+                  - name: Acceptable Sizes
+                    value:
+                      - Small
+                      - Medium
     shippingQuotes_Resp:
       description: This response can vary depending on the shipping provider.
       content:
@@ -3557,28 +3668,16 @@ components:
         name:
           type: string
           example: License ID
-          description: form field name
+          description: The name of the form field.
         value:
-          description: form field value
+          description: The value of the form field.
           type:
-            - number
-            - string
-            - array
+            - number,
+            - string,
+            - array,
           example: 123BAF
           items:
             type: string
-      x-examples:
-        Example 1:
-          name: License ID
-          value: 123BAF
-        Example 2:
-          name: Borrowing Amount
-          value: 12.2
-        Example 3:
-          name: Acceptable Sizes
-          value:
-            - Small
-            - Medium
     orderMessages:
       type: array
       items:
