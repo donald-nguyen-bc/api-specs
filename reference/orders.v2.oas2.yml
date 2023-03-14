@@ -814,7 +814,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/shippingAddress_Base'
+              $ref: '#/components/schemas/shippingAddress_Put'
             examples:
               application/json:
                 value:
@@ -2704,7 +2704,7 @@ components:
                 type: number
                 description: The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT request.
               is_deleted:
-                description: Boolean value that indicates whether the order was deleted (archived). Set to to true, to archive an order.'
+                description: 'Boolean value that indicates whether the order was deleted (archived). Set to to true, to archive an order.'
                 example: false
                 type: boolean
               is_email_opt_in:
@@ -3552,20 +3552,33 @@ components:
     formFields:
       title: formFields
       type: object
-      readOnly: true
-      description: Read-Only.
+      x-internal: false
       properties:
         name:
-          description: Read-Only.
-          readOnly: true
           type: string
           example: License ID
+          description: form field name
         value:
-          description: Read-Only.
-          readOnly: true
-          type: string
+          description: form field value
+          type:
+            - number
+            - string
+            - array
           example: 123BAF
-      x-internal: false
+          items:
+            type: string
+      x-examples:
+        Example 1:
+          name: License ID
+          value: 123BAF
+        Example 2:
+          name: Borrowing Amount
+          value: 12.2
+        Example 3:
+          name: Acceptable Sizes
+          value:
+            - Small
+            - Medium
     orderMessages:
       type: array
       items:
@@ -4432,11 +4445,15 @@ components:
         - price_ex_tax
       x-internal: false
     order_Put:
-      title: order_Put
       allOf:
         - $ref: '#/components/schemas/order_Shared'
         - type: object
           properties:
+            billing_address:
+              $ref: '#/components/schemas/billingAddress_Put'
+            payment_method:
+              type: string
+              description: 'The payment method for this order. Can be one of the following: `Manual`, `Credit Card`, `Cash`,`Test Payment Gateway`, etc.'
             products:
               type: array
               items:
@@ -4444,8 +4461,12 @@ components:
                   - $ref: '#/components/schemas/orderCatalogProduct_Put'
                   - $ref: '#/components/schemas/orderCustomProduct_Put'
             shipping_addresses:
-              $ref: '#/components/schemas/shippingAddress_Base'
-      x-internal: false
+              allOf:
+                - type: object
+                  properties:
+                    id:
+                      type: integer
+                - $ref: '#/components/schemas/shippingAddress_Put'
     order_Post:
       title: order_Post
       description: Products and Billing address only required for POST operation.
@@ -4464,3 +4485,21 @@ components:
                 $ref: '#/components/schemas/shippingAddress_Base'
         - $ref: '#/components/schemas/order_Shared'
       x-internal: false
+    shippingAddress_Put:
+      allOf:
+        - $ref: '#/components/schemas/shippingAddress_Base'
+        - type: object
+          properties:
+            form_fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/formFields'
+    billingAddress_Put:
+      allOf:
+        - $ref: '#/components/schemas/billingAddress_Base'
+        - type: object
+          properties:
+            form_fields:
+              type: array
+              items:
+                $ref: '#/components/schemas/formFields'
