@@ -736,7 +736,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/orderShippingAddress'
-              x-examples:
+              examples:
                 response:
                   value:
                     id: 1
@@ -2286,7 +2286,7 @@ components:
           schema:
             $ref: '#/components/schemas/orderShippingAddress'
           examples:
-            Capturing ID in Form Field:
+            response:
               value:
                 id: 42
                 order_id: 140
