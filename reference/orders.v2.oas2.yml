@@ -575,7 +575,7 @@ paths:
         
         **Usage notes**
         
-        Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in an unclickable text in the customer facing email.
+        Presuming that a valid carrier code is used, a tracking link is generated if either `shipping_provider` or `tracking_carrier` is supplied alongside a tracking number. Providing only the tracking number will result in non-clickable text in the customer facing email.
         
         Acceptable values for `shipping_provider` include an empty string (`""`), auspost, canadapost, endicia, usps, fedex, royalmail, ups, upsready, upsonline, or shipperhq.
         
@@ -917,7 +917,7 @@ components:
     status_id_path:
       name: status_id
       in: path
-      description: The staus ID of the order. You can get the status id from the `/orders` endpoints.
+      description: The status ID of the order. You can get the status id from the `/orders` endpoints.
       required: true
       schema:
         type: integer
@@ -1284,7 +1284,7 @@ components:
                   customer_locale: en
                   external_order_id: external-order-id
     ordersCount_Resp:
-      description: Order Countr response collection.
+      description: Order Counter response collection.
       content:
         application/json:
           schema:
@@ -2323,82 +2323,6 @@ components:
                 form_fields:
                   - name: Wholesale ID
                     value: '12345566'
-            Capturing Amount in Form Field:
-              value:
-                id: 42
-                order_id: 140
-                first_name: Jane
-                last_name: Doe
-                company: ''
-                street_1: 123 MainStreet
-                street_2: ''
-                city: Austin
-                zip: '78751'
-                country: United States
-                country_iso2: US
-                state: Texas
-                email: jane@example.com
-                phone: '1234567890'
-                items_total: 2
-                items_shipped: 0
-                shipping_method: Fixed Shipping
-                base_cost: '5.0000'
-                cost_ex_tax: '4.0000'
-                cost_inc_tax: '4.3200'
-                cost_tax: '0.3200'
-                cost_tax_class_id: 2
-                base_handling_cost: '0.0000'
-                handling_cost_ex_tax: '0.0000'
-                handling_cost_inc_tax: '0.0000'
-                handling_cost_tax: '0.0000'
-                handling_cost_tax_class_id: 2
-                shipping_zone_id: 1
-                shipping_zone_name: United States
-                shipping_quotes:
-                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
-                  resource: /orders/140/shippingaddresses/42/shippingquotes
-                form_fields:
-                  - name: Borrowing Amount
-                    value: '12.2'
-            Capturing Sizing in Form Field:
-              value:
-                id: 42
-                order_id: 140
-                first_name: Jane
-                last_name: Doe
-                company: ''
-                street_1: 123 MainStreet
-                street_2: ''
-                city: Austin
-                zip: '78751'
-                country: United States
-                country_iso2: US
-                state: Texas
-                email: jane@example.com
-                phone: '1234567890'
-                items_total: 2
-                items_shipped: 0
-                shipping_method: Fixed Shipping
-                base_cost: '5.0000'
-                cost_ex_tax: '4.0000'
-                cost_inc_tax: '4.3200'
-                cost_tax: '0.3200'
-                cost_tax_class_id: 2
-                base_handling_cost: '0.0000'
-                handling_cost_ex_tax: '0.0000'
-                handling_cost_inc_tax: '0.0000'
-                handling_cost_tax: '0.0000'
-                handling_cost_tax_class_id: 2
-                shipping_zone_id: 1
-                shipping_zone_name: United States
-                shipping_quotes:
-                  url: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/140/shippingaddresses/42/shippingquotes'
-                  resource: /orders/140/shippingaddresses/42/shippingquotes
-                form_fields:
-                  - name: Acceptable Sizes
-                    value:
-                      - Small
-                      - Medium
     shippingQuotes_Resp:
       description: This response can vary depending on the shipping provider.
       content:
@@ -3093,7 +3017,6 @@ components:
         total_tax:
           description: |-
             Total tax applied to products.
-            
             For example, if quantity if 2, base price is 5 and tax rate is 10%. price_tax will be $.50 and total_tax will be $1.00.
           
             If there is a manual discount applied total_tax is calculated as the following:
@@ -3634,9 +3557,9 @@ components:
         name:
           type: string
           example: License ID
-          description: form field name
+          description: The form field name.
         value:
-          description: form field value
+          description: †he form field value.
           type:
             - number
             - string
@@ -4419,7 +4342,7 @@ components:
                   - The API does not currently support the following option types:
                     - File upload
                     - Pick list
-                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and retuned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
+                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and returned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
                   - For multi-line text field modifiers, use the `\n` characters for separating the lines.
               display_name:
                 type: string
@@ -4580,4 +4503,3 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/formFields'
-
