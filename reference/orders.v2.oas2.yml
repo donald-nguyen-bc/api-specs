@@ -3559,7 +3559,7 @@ components:
           example: License ID
           description: The form field name.
         value:
-          description: †he form field value.
+          description: The form field value.
           type:
             - number
             - string
@@ -3568,17 +3568,39 @@ components:
           items:
             type: string
       x-examples:
-        Example 1:
-          name: License ID
-          value: 123BAF
-        Example 2:
-          name: Borrowing Amount
-          value: 12.2
-        Example 3:
-          name: Acceptable Sizes
-          value:
-            - Small
-            - Medium
+        Capture Custom Billing Address Form Fields:
+          data:
+            billing_address:
+              form_fields:
+                - name: picklist1
+                  value: picklist-value-2
+                - name: textfield1
+                  value: text2
+                - name: radiobutton1
+                  value: radio-value-2
+                - name: checkbox1
+                  value: checkbox-value-2
+                - name: multilinetextfield
+                  value: line1\line2
+                - name: numberonlyfield
+                  value: 123.2
+                - name: passwordfield1
+                  value: password2
+        Capture Custom Shipping Address Form Fields:
+          data:
+            shipping_address:
+              id: 23
+              form_fields:
+                - name:  picklist1
+                  value: picklist-value-3
+        Capture Custom Consignment Shipping Form Fields:
+          data:
+            consignments:
+              Shipping:
+                id: 23
+                form_fields:
+                  - name: picklist1
+                    value: picklist-value-2
     orderMessages:
       type: array
       items:
