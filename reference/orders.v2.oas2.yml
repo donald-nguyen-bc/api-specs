@@ -1940,7 +1940,7 @@ components:
                       display_style: Pick list
                   configurable_fields: []
                   gift_certificate_id: null
-                  discounted_total_inc_tax: '0.0000'
+                  discounted_total_inc_tax: '63.6400'
                 - id: 66
                   order_id: 149
                   product_id: 86
@@ -3498,7 +3498,10 @@ components:
         discounted_total_inc_tax:
           type: string
           example: '0.0000'
-          description: The discounted line item total.
+          description: |-
+            Represent the correct total amount of the line item after deducting all the discounts and including the tax. This number can be used for accounting purpose.
+            
+            Why we cannot use the `total_inc_tax` amount? It's because `total_ex_tax + total_tax != total_inc_tax` in multiple scenarios, especially when we have a mix-match of entered price exclusive of tax, and display price inclusive of tax, and vice versa. So that field `total_inc_tax` is not reliable for accounting purpose and the value may be wrong.
     orderCount:
       title: orderCount
       example:
