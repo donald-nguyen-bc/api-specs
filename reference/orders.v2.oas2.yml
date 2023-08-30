@@ -1940,6 +1940,7 @@ components:
                       display_style: Pick list
                   configurable_fields: []
                   gift_certificate_id: null
+                  discounted_total_inc_tax: '0.0000'
                 - id: 66
                   order_id: 149
                   product_id: 86
@@ -1988,6 +1989,7 @@ components:
                   product_options: []
                   configurable_fields: []
                   gift_certificate_id: null
+                  discounted_total_inc_tax: '0.0000'
     orderProductLineItem_Resp:
       description: ''
       content:
@@ -2046,6 +2048,7 @@ components:
                 brand: BigCommerce
                 applied_discounts: []
                 product_options: []
+                discounted_total_inc_tax: "0.0000"
             Product with file upload:
               value:
                 - id: 35
@@ -3492,6 +3495,10 @@ components:
           example: 52
           description: ID of the associated gift certificate.
           nullable: true
+        discounted_total_inc_tax:
+          type: string
+          example: '0.0000'
+          description: The discounted line item total.
     orderCount:
       title: orderCount
       example:
