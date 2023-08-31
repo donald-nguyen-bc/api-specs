@@ -2048,7 +2048,7 @@ components:
                 brand: BigCommerce
                 applied_discounts: []
                 product_options: []
-                discounted_total_inc_tax: "0.0000"
+                discounted_total_inc_tax: '37.2300'
             Product with file upload:
               value:
                 - id: 35
